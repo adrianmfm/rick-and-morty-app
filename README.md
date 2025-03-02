@@ -1,59 +1,55 @@
-# ZendaTest
+# Rick and Morty Angular App
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+![Rick and Morty](https://rickandmortyapi.com/api/character/avatar/1.jpeg)
 
-## Development server
+Esta es una aplicación Angular que consume la API de [Rick and Morty](https://rickandmortyapi.com/) para mostrar información sobre los personajes de la serie. La aplicación incluye una tabla de personajes, filtros de búsqueda, detalles de personajes, y favoritos.
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## Características
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+- **Lista de personajes**: Muestra una tabla con los personajes de Rick and Morty, incluyendo nombre, género, estado, especie, ubicación, tipo y fecha de creación.
+- **Filtros de búsqueda**: Permite filtrar personajes por nombre y especie.
+- **Detalles del personaje**: Al seleccionar un personaje, se muestra su imagen, información básica, origen, localización y un episodio en el que aparece.
+- **Favoritos**: Los usuarios pueden marcar personajes como favoritos y verlos en una sección especial.
+- **Paginación**: Navega entre las páginas de personajes usando el paginador de Angular Material.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tecnologías Utilizadas
 
-```bash
-ng generate component component-name
-```
+- **Angular**: Framework frontend para construir la aplicación.
+- **Angular Material**: Componentes de UI para una experiencia de usuario moderna y responsiva.
+- **Rick and Morty API**: API pública para obtener datos sobre los personajes de la serie.
+- **TypeScript**: Lenguaje principal para el desarrollo de la aplicación.
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## Requisitos Previos
 
-## Building
+Antes de ejecutar la aplicación, asegúrate de tener instalado lo siguiente:
 
-To build the project run:
+- [Node.js](https://nodejs.org/) (v16 o superior)
+- [Angular CLI](https://angular.io/cli) (v14 o superior)
+- Un navegador web moderno (Chrome, Firefox, Edge, etc.)
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Instalación
 
-## Running unit tests
+Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+1. **Clona el repositorio**:
+   ```bash
+   git clone https://github.com/tu-usuario/tu-repositorio.git
+   cd tu-repositorio
+    ```
+2. **Instala las dependencias**:
+   ```bash
+    npm install
+     ```
+3. **Ejecuta la aplicación**:
+     ```bash
+     ng serve
+       ```
+   
