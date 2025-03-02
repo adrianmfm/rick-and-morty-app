@@ -42,7 +42,7 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 
 1. **Clona el repositorio**:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
    cd tu-repositorio
     ```
 2. **Instala las dependencias**:
