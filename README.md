@@ -19,7 +19,8 @@ Esta es una aplicación Angular que consume la API de [Rick and Morty](https://r
 ## Tecnologías Utilizadas
 
 - **Angular**: Framework frontend para construir la aplicación.
-- **Angular Material**: Componentes de UI para una experiencia de usuario moderna y responsiva.
+- **Angular Material**: Componentes de UI para una experiencia de usuario moderna.
+- **PrimeIcons**: Biblioteca de íconos utilizada para mejorar la interfaz de usuario.
 - **Rick and Morty API**: API pública para obtener datos sobre los personajes de la serie.
 - **TypeScript**: Lenguaje principal para el desarrollo de la aplicación.
 
@@ -51,5 +52,5 @@ Sigue estos pasos para configurar y ejecutar la aplicación en tu entorno local:
 3. **Ejecuta la aplicación**:
      ```bash
      ng serve
-       ```
+ 
    
