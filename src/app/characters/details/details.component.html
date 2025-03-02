@@ -1,0 +1,66 @@
+<div class="details-panel" *ngIf="selectedCharacter">
+  <h2>Detalles del personaje</h2>
+
+  <!-- Imagen del personaje -->
+  <div class="character-image">
+    <img [src]="selectedCharacter.image" [alt]="selectedCharacter.name" />
+  </div>
+
+  <!-- Información básica del personaje -->
+  <div class="character-info">
+    <p><strong>Nombre:</strong> {{ selectedCharacter.name }}</p>
+    <p><strong>Género:</strong> {{ selectedCharacter.gender }}</p>
+    <p><strong>Estado:</strong> {{ selectedCharacter.status }}</p>
+    <p><strong>Especie:</strong> {{ selectedCharacter.species }}</p>
+    <p><strong>Tipo:</strong> {{ selectedCharacter.type || 'N/A' }}</p>
+    <p><strong>Creado:</strong> {{ selectedCharacter.created | date }}</p>
+  </div>
+
+  <!-- Información del origen -->
+  <div class="origin-info" *ngIf="originInfo">
+    <h3>Información del origen</h3>
+    <p><strong>Nombre:</strong> {{ originInfo.name }}</p>
+    <p><strong>Tipo:</strong> {{ originInfo.type || 'N/A' }}</p>
+    <p><strong>Dimensión:</strong> {{ originInfo.dimension || 'N/A' }}</p>
+    <p><strong>Residente:</strong></p>
+    <ul>
+      <li *ngIf="resident">
+        <strong>Nombre:</strong> {{ resident.name }}
+      </li>
+      <li *ngIf="!resident">No hay residentes disponibles.</li>
+    </ul>
+  </div>
+
+  <!-- Información de la localización -->
+  <h3 *ngIf="!locationInfo">No hay información de locación.</h3>
+  <div class="location-info" *ngIf="locationInfo">
+    <h3>Información de la localización</h3>
+    <p><strong>Nombre:</strong> {{ locationInfo.name }}</p>
+    <p><strong>Tipo:</strong> {{ locationInfo.type || 'N/A' }}</p>
+    <p><strong>Dimensión:</strong> {{ locationInfo.dimension || 'N/A' }}</p>
+    <p><strong>Residentes:</strong></p>
+    <ul>
+      <li *ngIf="locationResident">
+        <strong>Nombre:</strong> {{ locationResident.name }}, <strong>Estado:</strong> {{ locationResident.status }}
+      </li>
+      <li *ngIf="!locationResident">No hay residentes disponibles.</li>
+    </ul>
+  </div>
+
+  <!-- Información del episodio -->
+  <div class="episode-info" *ngIf="episode">
+    <h3>Información del episodio</h3>
+    <p><strong>Nombre:</strong> {{ episode.name }}</p>
+    <p><strong>Episodio:</strong> {{ episode.episode }}</p>
+    <p><strong>Fecha de lanzamiento:</strong> {{ episode.air_date }}</p>
+  </div>
+  <div class="episode-info" *ngIf="!episode">
+    <h3>Información del episodio</h3>
+    <p>No hay episodios disponibles.</p>
+  </div>
+</div>
+
+<div *ngIf="!selectedCharacter" class="no-selection">
+  <p>No se ha seleccionado ningún personaje.</p>
+</div>
+

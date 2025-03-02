@@ -1,0 +1,25 @@
+.details-panel {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.character-image img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 10px;
+}
+
+.character-info,
+.origin-info,
+.location-info,
+.episode-info {
+  margin-top: 20px;
+}
+
+.no-selection {
+  margin-top: 20px;
+  color: #888;
+}

@@ -1,0 +1,26 @@
+/* Estilos del Header */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #35c9dd; /* Color de fondo */
+  padding: 0 20px;
+  height: 100px;
+}
+
+.menu-button,
+.profile-button {
+  color: white;
+}
+
+.app-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+  text-align: center;
+  flex-grow: 1;
+}
+.app-logo {
+  width: 100px;
+  height: auto;
+}

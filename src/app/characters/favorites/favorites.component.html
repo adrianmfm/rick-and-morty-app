@@ -1,0 +1,12 @@
+<div class="favorites-section" *ngIf="favoriteCharacters.length > 0">
+  <h2>Favoritos</h2>
+  <div class="favorites-list">
+    <span
+      *ngFor="let fav of favoriteCharacters"
+      class="favorite-name"
+      (click)="showFavoriteDetails(fav)"
+    >
+      {{ fav.name }}
+    </span>
+  </div>
+</div>

@@ -1,0 +1,137 @@
+<app-header></app-header>
+<div class="main-container">
+  <app-favorites
+    [favoriteCharacters]="favoriteCharacters"
+    (favoriteSelected)="showFavoriteDetails($event)"
+  ></app-favorites>
+  <!-- Campo de búsqueda para filtrar -->
+  <mat-form-field appearance="outline" style="margin-right: 10px;">
+    <mat-label>Buscar</mat-label>
+    <input matInput (input)="applyFilter($event)" [(ngModel)]="nameFilter" />
+  </mat-form-field>
+  <div *ngIf="noResultsFound" class="no-results">
+    No se encontraron resultados.
+  </div>
+  <!-- Filtro por especie -->
+  <mat-form-field appearance="outline">
+    <mat-label>Filtrar por especie</mat-label>
+    <mat-select
+      [(ngModel)]="speciesFilter"
+      (selectionChange)="applySpeciesFilter($event)"
+    >
+      <mat-option value="">Todas</mat-option>
+      <mat-option *ngFor="let species of speciesList" [value]="species">{{
+        species
+      }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button
+    mat-button
+    *ngIf="speciesFilter || nameFilter"
+    (click)="clearFilter()"
+  >
+    Borrar filtro
+  </button>
+  <mat-spinner class="spinner" *ngIf="isLoading"></mat-spinner>
+  <!-- Contenedor flexible para la tabla y los detalles -->
+  <div class="content-container">
+    <!-- Tabla de personajes -->
+    <div class="table-container">
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        class="mat-elevation-z8"
+        *ngIf="!isLoading && !noResultsFound"
+      >
+        <!-- Columnas de la tabla -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef>Gender</th>
+          <td mat-cell *matCellDef="let element">{{ element.gender }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let element">{{ element.status }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="species">
+          <th mat-header-cell *matHeaderCellDef>Species</th>
+          <td mat-cell *matCellDef="let element">{{ element.species }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="location">
+          <th mat-header-cell *matHeaderCellDef>Location</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.location.name }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let element">{{ element.type  || 'Desconocido'}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="created">
+          <th mat-header-cell *matHeaderCellDef>Created</th>
+          <td mat-cell *matCellDef="let element">
+            {{ element.created | date }}
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef>Details</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="onViewDetails(element)">
+              Ver detalles
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="favorite">
+          <th mat-header-cell *matHeaderCellDef>Favorite</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button (click)="toggleFavorite(element)">
+              <span
+                class="pi"
+                [ngClass]="isFavorite(element) ? 'pi-heart-fill' : 'pi-heart'"
+              ></span>
+            </button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+      </table>
+    </div>
+
+    <!-- Detalles del personaje -->
+    <div class="details-container">
+      <app-details [selectedCharacter]="selectedCharacter"></app-details>
+    </div>
+  </div>
+  <!-- Paginador -->
+  <mat-paginator
+    [length]="totalPages * 20"
+    [pageSize]="pageSize"
+    (page)="onPageChange($event)"
+    aria-label="Página seleccionada"
+    [disabled]="noResultsFound"
+  >
+  </mat-paginator>
+  <div class="species-summary">
+    <p class="total-species">
+      Total Species: <span>{{ totalItems }}</span>
+    </p>
+    <p class="total-types">
+      Total Types: <span>{{ speciesList.length }}</span>
+    </p>
+  </div>
+</div>
+
+
